@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHY 131 Classical Physics I — 시험 정리</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3352;
+    --accent: #5b8dee;
+    --accent2: #e85d75;
+    --accent3: #3ecf8e;
+    --accent4: #f5a623;
+    --accent5: #b07af9;
+    --text: #e8eaf6;
+    --text2: #9ea3c0;
+    --text3: #6b7194;
+    --formula: #1a2540;
+    --formula-border: #3a5080;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0d1b3e 0%, #1a1040 50%, #0a2040 100%);
+    padding: 2.5rem 2rem 2rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(91,141,238,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #fff;
+  }
+  .header .subtitle {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .header .meta {
+    margin-top: 1rem;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(91,141,238,0.15);
+    border: 1px solid rgba(91,141,238,0.3);
+    color: var(--accent);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  /* Nav */
+  .nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 2rem;
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    padding: 0.35rem 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* Main layout */
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+
+  /* Section */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-title .icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+
+  /* Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .card p, .card li {
+    font-size: 0.88rem;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+  .card ul { padding-left: 1.2rem; }
+  .card li { margin-bottom: 0.3rem; }
+
+  /* Formula block */
+  .formula {
+    background: var(--formula);
+    border: 1px solid var(--formula-border);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    color: #a8d4ff;
+    margin: 0.6rem 0;
+    line-height: 1.7;
+  }
+  .formula .comment {
+    color: var(--text3);
+    font-size: 0.78rem;
+  }
+  .formula strong { color: #f0c060; }
+
+  /* Full-width card */
+  .card-full {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+  .card-full h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent3);
+    margin-bottom: 0.8rem;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  th {
+    background: var(--surface2);
+    color: var(--text);
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 0.55rem 0.9rem;
+    border-bottom: 1px solid rgba(46,51,82,0.5);
+    color: var(--text2);
+    vertical-align: top;
+  }
+  tr:hover td { background: rgba(91,141,238,0.04); }
+  .mono { font-family: 'JetBrains Mono', monospace; color: #a8d4ff; }
+
+  /* Colored accents per section */
+  .blue  h3 { color: var(--accent); }
+  .green h3 { color: var(--accent3); }
+  .red   h3 { color: var(--accent2); }
+  .gold  h3 { color: var(--accent4); }
+  .purple h3 { color: var(--accent5); }
+
+  /* Highlight box */
+  .highlight {
+    background: rgba(91,141,238,0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.8rem 1rem;
+    margin: 0.8rem 0;
+    font-size: 0.88rem;
+    color: var(--text);
+  }
+  .highlight.green { border-color: var(--accent3); background: rgba(62,207,142,0.08); }
+  .highlight.gold  { border-color: var(--accent4); background: rgba(245,166,35,0.08); }
+  .highlight.red   { border-color: var(--accent2); background: rgba(232,93,117,0.08); }
+  .highlight.purple{ border-color: var(--accent5); background: rgba(176,122,249,0.08); }
+
+  /* Tag */
+  .tag {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 0.3rem;
+  }
+  .tag.blue   { background: rgba(91,141,238,0.2); color: var(--accent); }
+  .tag.green  { background: rgba(62,207,142,0.2); color: var(--accent3); }
+  .tag.red    { background: rgba(232,93,117,0.2); color: var(--accent2); }
+  .tag.gold   { background: rgba(245,166,35,0.2); color: var(--accent4); }
+  .tag.purple { background: rgba(176,122,249,0.2); color: var(--accent5); }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+
+  /* Collapsible */
+  .collapse-btn {
+    background: none;
+    border: none;
+    color: var(--text2);
+    font-size: 0.82rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin-top: 0.5rem;
+    text-decoration: underline;
+  }
+  .collapse-content { display: none; margin-top: 0.7rem; }
+  .collapse-content.open { display: block; }
+
+  /* Tip box */
+  .tip {
+    background: rgba(245,166,35,0.06);
+    border: 1px solid rgba(245,166,35,0.25);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    font-size: 0.84rem;
+    color: var(--accent4);
+    margin-top: 0.8rem;
+  }
+  .tip::before { content: '⚠️  '; }
+
+  @media (max-width: 600px) {
+    .container { padding: 1rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⚛️ PHY 131 — Classical Physics I</h1>
+  <div class="subtitle">Stony Brook University · Spring 2026 · Dr. MacKenzie Lenz</div>
+  <div class="meta">
+    <span class="badge">시험 종합 정리</span>
+    <span class="badge">734페이지 → 핵심 요약</span>
+    <span class="badge">공식 + 개념 + 예제</span>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="show('kinematics', this)">📐 운동학</button>
+  <button class="nav-btn" onclick="show('forces', this)">⚡ 힘·뉴턴</button>
+  <button class="nav-btn" onclick="show('momentum', this)">💥 운동량</button>
+  <button class="nav-btn" onclick="show('energy', this)">🔋 에너지</button>
+  <button class="nav-btn" onclick="show('rotation', this)">🌀 회전</button>
+  <button class="nav-btn" onclick="show('oscillation', this)">〰️ 진동·파동</button>
+  <button class="nav-btn" onclick="show('thermo', this)">🌡️ 열역학</button>
+  <button class="nav-btn" onclick="show('formulas', this)">📋 공식 모음</button>
+</div>
+
+<div class="container">
+
+<!-- ===== KINEMATICS ===== -->
+<div id="kinematics" class="section active">
+  <div class="section-title">
+    <span class="icon" style="background:rgba(91,141,238,0.2)">📐</span>
+    운동학 (Kinematics)
+  </div>
+
+  <div class="card-grid">
+    <div class="card blue">
+      <h3>🔑 핵심 개념 3종</h3>
+      <ul>
+        <li><strong>위치 (Position)</strong> — 기준점 대비 좌표</li>
+        <li><strong>속도 (Velocity)</strong> — 위치의 시간 변화율 (벡터!)</li>
+        <li><strong>가속도 (Acceleration)</strong> — 속도의 시간 변화율 (벡터!)</li>
+      </ul>
+      <div class="formula">v = Δx / Δt<br>a = Δv / Δt</div>
+    </div>
+
+    <div class="card blue">
+      <h3>📌 평균 vs 순간</h3>
+      <ul>
+        <li><strong>평균속도</strong> = 총 변위 / 총 시간</li>
+        <li><strong>순간속도</strong> = 극한(Δt→0) 의 Δx/Δt</li>
+        <li><strong>스칼라 vs 벡터:</strong> 속력(speed)은 스칼라, 속도(velocity)는 벡터</li>
+      </ul>
+    </div>
+
+    <div class="card blue">
+      <h3>⚙️ 등가속도 운동 방정식 (4개)</h3>
+      <div class="formula">
+        <strong>vf = v₀ + at</strong> <span class="comment">// Δx 없음</span><br>
+        <strong>Δx = v₀t + ½at²</strong> <span class="comment">// vf 없음</span><br>
+        <strong>vf² = v₀² + 2aΔx</strong> <span class="comment">// t 없음</span><br>
+        <strong>Δx = ½(v₀+vf)t</strong> <span class="comment">// a 없음</span>
+      </div>
+    </div>
+
+    <div class="card blue">
+      <h3>🎯 자유낙하</h3>
+      <ul>
+        <li>가속도 = <strong>g = 9.8 m/s²</strong> (아래 방향)</li>
+        <li>최고점에서 순간속도 = 0, 가속도 ≠ 0</li>
+        <li>올라갈 때와 내려올 때 가속도 방향은 동일 (아래)</li>
+      </ul>
+      <div class="tip">최고점에서 가속도는 0이 아님! 여전히 -9.8 m/s²</div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <h3>🗺️ 2D 운동 (투사체 운동)</h3>
+    <p style="color:var(--text2); font-size:0.88rem; margin-bottom:0.8rem;">2D 운동은 x, y 방향 <strong>독립적으로</strong> 분리해서 풀기!</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+      <div>
+        <div class="highlight">x 방향: 등속 운동 (ax = 0)<br>x = v₀ₓ · t</div>
+      </div>
+      <div>
+        <div class="highlight">y 방향: 자유낙하 (ay = -g)<br>y = v₀ᵧt - ½gt²</div>
+      </div>
+    </div>
+    <ul style="color:var(--text2); font-size:0.87rem; margin-top:0.8rem; padding-left:1.2rem;">
+      <li>초기 속도 분해: v₀ₓ = v₀cosθ, v₀ᵧ = v₀sinθ</li>
+      <li>두 방향의 <strong>시간 t</strong>는 항상 공유</li>
+    </ul>
+  </div>
+
+  <div class="card-full">
+    <h3>🔄 기준 좌표계 (Reference Frames)</h3>
+    <p style="color:var(--text2); font-size:0.87rem;">같은 문제에서 모든 물체에 <strong>공통 기준계</strong>를 사용해야 함. 기준계 선택이 계산 난이도를 결정한다.</p>
+  </div>
+</div>
+
+<!-- ===== FORCES ===== -->
+<div id="forces" class="section">
+  <div class="section-title">
+    <span class="icon" style="background:rgba(232,93,117,0.2)">⚡</span>
+    힘과 뉴턴 법칙 (Forces & Newton's Laws)
+  </div>
+
+  <div class="card-grid">
+    <div class="card red">
+      <h3>📜 뉴턴 3법칙</h3>
+      <ul>
+        <li><strong>1법칙 (관성):</strong> 외력이 없으면 정지 or 등속 유지</li>
+        <li><strong>2법칙 (F=ma):</strong> ΣF = ma (알짜힘 = 질량 × 가속도)</li>
+        <li><strong>3법칙 (작용반작용):</strong> A가 B에 힘 → B가 A에 같은 크기, 반대 방향</li>
+      </ul>
+      <div class="formula"><strong>ΣF = ma</strong></div>
+    </div>
+
+    <div class="card red">
+      <h3>💪 힘의 종류</h3>
+      <ul>
+        <li><strong>중력 (Gravity):</strong> Fg = mg, 아래 방향</li>
+        <li><strong>수직항력 (Normal):</strong> 표면에 수직, 크기는 상황에 따라 변함</li>
+        <li><strong>장력 (Tension):</strong> 줄 따라 작용, 질량 없는 줄에서 일정</li>
+        <li><strong>마찰력 (Friction):</strong> 표면에 평행, 운동/정지 마찰</li>
+        <li><strong>탄성력 (Spring):</strong> Hooke's Law: F = -kΔx</li>
+      </ul>
+    </div>
+
+    <div class="card red">
+      <h3>🧱 마찰력 (Friction)</h3>
+      <ul>
+        <li><strong>정지마찰 (Static):</strong> fs ≤ μs·N (최대값 있음)</li>
+        <li><strong>운동마찰 (Kinetic):</strong> fk = μk·N (일정)</li>
+        <li>μs > μk 항상 성립</li>
+        <li>운동이 시작되면 static → kinetic으로 전환</li>
+      </ul>
+      <div class="formula">
+        <strong>fk = μk · N</strong><br>
+        <strong>fs,max = μs · N</strong>
+      </div>
+    </div>
+
+    <div class="card red">
+      <h3>🌀 스프링 (Hooke's Law)</h3>
+      <ul>
+        <li>F = -kΔx (복원력, 항상 평형점 방향)</li>
+        <li>k = 스프링 상수 (단위: N/m)</li>
+        <li>Δx = 평형점으로부터 변위</li>
+        <li>음의 부호 → 변위 반대 방향으로 힘</li>
+      </ul>
+      <div class="formula"><strong>F = -kΔx</strong></div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <h3>⚖️ 평형 (Equilibrium)</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.5rem;">
+      <div class="highlight">정적 평형: ΣF = 0, a = 0 (정지 상태)</div>
+      <div class="highlight">동적 평형: ΣF = 0, 등속 운동 (a = 0)</div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <h3>🔗 연결된 물체 & 도르래 (Pulleys)</h3>
+    <ul style="color:var(--text2); font-size:0.87rem; padding-left:1.2rem;">
+      <li>연결된 물체는 <strong>가속도가 동일</strong> (가속도 제약 조건)</li>
+      <li>도르래: 줄의 장력은 도르래 양쪽에서 같음 (마찰 없는 경우)</li>
+      <li>3법칙 쌍은 <strong>서로 다른 FBD</strong>에 나타남</li>
+    </ul>
+    <div class="formula">
+      <span class="comment">// Atwood Machine 예시</span><br>
+      a = (m₁ - m₂)g / (m₁ + m₂)
+    </div>
+  </div>
+</div>
+
+<!-- ===== MOMENTUM ===== -->
+<div id="momentum" class="section">
+  <div class="section-title">
+    <span class="icon" style="background:rgba(245,166,35,0.2)">💥</span>
+    운동량과 충격량 (Momentum & Impulse)
+  </div>
+
+  <div class="card-grid">
+    <div class="card gold">
+      <h3>📦 운동량 (Momentum)</h3>
+      <ul>
+        <li>운동의 "양"을 나타내는 벡터</li>
+        <li>p = mv (단위: kg·m/s)</li>
+        <li>벡터이므로 방향 중요!</li>
+      </ul>
+      <div class="formula"><strong>p = mv</strong></div>
+    </div>
+
+    <div class="card gold">
+      <h3>⚡ 충격량 (Impulse)</h3>
+      <ul>
+        <li>충격량 = 운동량의 변화</li>
+        <li>J = ΔP = F·Δt</li>
+        <li>뉴턴 2법칙을 다시 쓴 것!</li>
+      </ul>
+      <div class="formula">
+        <strong>J = Δp = F·Δt</strong><br>
+        <span class="comment">// J = ∫F dt (일반형)</span>
+      </div>
+    </div>
+
+    <div class="card gold">
+      <h3>🔒 운동량 보존</h3>
+      <ul>
+        <li>계에 외력이 없으면 총 운동량 보존</li>
+        <li>ΣF_ext = 0 → p_총 = 일정</li>
+        <li>충돌, 폭발 문제에 핵심!</li>
+      </ul>
+      <div class="formula"><strong>p₁ᵢ + p₂ᵢ = p₁f + p₂f</strong></div>
+    </div>
+
+    <div class="card gold">
+      <h3>💣 충돌 3종류</h3>
+      <ul>
+        <li><strong>완전 비탄성:</strong> 합쳐짐, KE 최대 손실<br><span style="font-family:monospace;color:#a8d4ff;font-size:0.82rem">m₁v₁ = (m₁+m₂)vf</span></li>
+        <li><strong>비탄성:</strong> 운동량 보존, KE 일부 손실</li>
+        <li><strong>탄성:</strong> 운동량 + KE 둘 다 보존</li>
+        <li><strong>폭발:</strong> 처음 정지 → 분리, 총 운동량 = 0</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <h3>🧭 2D 운동량</h3>
+    <p style="color:var(--text2); font-size:0.87rem; margin-bottom:0.7rem;">운동량은 벡터 → x, y 방향으로 각각 보존!</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+      <div class="highlight">x: p₁ₓᵢ + p₂ₓᵢ = p₁ₓf + p₂ₓf</div>
+      <div class="highlight">y: p₁ᵧᵢ + p₂ᵧᵢ = p₁ᵧf + p₂ᵧf</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ENERGY ===== -->
+<div id="energy" class="section">
+  <div class="section-title">
+    <span class="icon" style="background:rgba(62,207,142,0.2)">🔋</span>
+    에너지와 일 (Work & Energy)
+  </div>
+
+  <div class="card-grid">
+    <div class="card green">
+      <h3>🎯 일 (Work)</h3>
+      <ul>
+        <li>W = F·d·cosθ (θ = 힘과 변위 각도)</li>
+        <li>힘과 변위가 같은 방향 → 양의 일</li>
+        <li>힘과 변위가 반대 방향 → 음의 일</li>
+        <li>수직이면 → 일 = 0</li>
+      </ul>
+      <div class="formula"><strong>W = F·d·cosθ = F⃗·d⃗</strong></div>
+    </div>
+
+    <div class="card green">
+      <h3>🏃 운동 에너지 (KE)</h3>
+      <ul>
+        <li>운동하는 물체가 가진 에너지</li>
+        <li>K = ½mv²</li>
+        <li>일-에너지 정리: W_net = ΔK</li>
+      </ul>
+      <div class="formula">
+        <strong>K = ½mv²</strong><br>
+        <strong>W_net = Kf - Ki</strong>
+      </div>
+    </div>
+
+    <div class="card green">
+      <h3>⛰️ 퍼텐셜 에너지 (PE)</h3>
+      <ul>
+        <li><strong>중력:</strong> Ug = mgh (h = 높이)</li>
+        <li><strong>탄성:</strong> Us = ½kx²</li>
+        <li>기준점(h=0) 직접 선택 가능</li>
+        <li>내부 힘이 한 일 = -ΔPE</li>
+      </ul>
+      <div class="formula">
+        <strong>Ug = mgh</strong><br>
+        <strong>Us = ½kx²</strong>
+      </div>
+    </div>
+
+    <div class="card green">
+      <h3>🔋 역학적 에너지 보존</h3>
+      <ul>
+        <li>마찰 없을 때: E_tot = K + U = 일정</li>
+        <li>Ki + Ui = Kf + Uf</li>
+        <li>마찰 있으면: 열에너지(Eth) 발생</li>
+      </ul>
+      <div class="formula">
+        <strong>Ki + Ui = Kf + Uf</strong><br>
+        <span class="comment">// 마찰 없는 경우</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <h3>⚡ 일률 (Power)</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.5rem;">
+      <div>
+        <div class="formula"><strong>P = W/t = F·v</strong></div>
+        <p style="color:var(--text2); font-size:0.85rem; margin-top:0.4rem">단위: W (와트) = J/s</p>
+      </div>
+      <div>
+        <div class="highlight">에너지 다이어그램: 안정 평형 = 극솟값, 불안정 평형 = 극댓값</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <h3>📊 에너지 원칙 (Energy Principle)</h3>
+    <p style="color:var(--text2); font-size:0.87rem;">계 내부에서 에너지 변환은 일어나지만 총 에너지는 변하지 않음. 외부에서 일이 들어와야 계의 에너지가 바뀜.</p>
+    <div class="highlight" style="margin-top:0.8rem">ΔE_system = W_external + Q</div>
+  </div>
+</div>
+
+<!-- ===== ROTATION ===== -->
+<div id="rotation" class="section">
+  <div class="section-title">
+    <span class="icon" style="background:rgba(176,122,249,0.2)">🌀</span>
+    회전 운동 (Rotation & Angular Motion)
+  </div>
+
+  <div class="card-grid">
+    <div class="card purple">
+      <h3>📐 각운동 기본량</h3>
+      <ul>
+        <li><strong>각위치 θ</strong> (rad)</li>
+        <li><strong>각속도 ω</strong> = dθ/dt (rad/s)</li>
+        <li><strong>각가속도 α</strong> = dω/dt (rad/s²)</li>
+      </ul>
+      <div class="formula">
+        v = rω &nbsp; a = rα &nbsp; (선형↔각도 변환)
+      </div>
+    </div>
+
+    <div class="card purple">
+      <h3>🔩 토크 (Torque)</h3>
+      <ul>
+        <li>회전의 "원인" (힘의 회전 버전)</li>
+        <li>τ = r × F = rF·sinθ</li>
+        <li>r = 회전축으로부터 거리</li>
+        <li>방향: 오른손 법칙</li>
+      </ul>
+      <div class="formula"><strong>τ = rF sinθ</strong><br><strong>Στ = Iα</strong></div>
+    </div>
+
+    <div class="card purple">
+      <h3>🏋️ 관성 모멘트 (Moment of Inertia)</h3>
+      <ul>
+        <li>회전 저항의 척도 (질량의 회전 버전)</li>
+        <li>I = Σmr² (이산적)</li>
+        <li>I = ∫r² dm (연속)</li>
+        <li>중심 기준: 막대 I = (1/12)ML², 원반 I = (1/2)MR²</li>
+      </ul>
+      <div class="formula"><strong>I = Σmᵢrᵢ²</strong></div>
+    </div>
+
+    <div class="card purple">
+      <h3>📏 평행축 정리</h3>
+      <ul>
+        <li>I = I_cm + Md²</li>
+        <li>d = 질량중심에서 새 축까지 거리</li>
+        <li>새 축 기준의 I를 쉽게 계산</li>
+      </ul>
+      <div class="formula"><strong>I = I_cm + Md²</strong></div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card purple">
+      <h3>🔄 구르기 (Rolling Without Slipping)</h3>
+      <ul>
+        <li>v_cm = Rω (구름 조건)</li>
+        <li>KE_total = ½mv² + ½Iω²</li>
+        <li>= 병진 KE + 회전 KE</li>
+      </ul>
+      <div class="formula">
+        <strong>v = Rω</strong><br>
+        <strong>K = ½mv² + ½Iω²</strong>
+      </div>
+    </div>
+
+    <div class="card purple">
+      <h3>🌊 각운동량 (Angular Momentum)</h3>
+      <ul>
+        <li>L = Iω (회전하는 물체)</li>
+        <li>L = r × p (점 질량)</li>
+        <li>외부 토크 = 0 → 각운동량 보존</li>
+      </ul>
+      <div class="formula">
+        <strong>L = Iω</strong><br>
+        <strong>Στ = dL/dt</strong>
+      </div>
+    </div>
+
+    <div class="card purple">
+      <h3>✖️ 외적 (Cross Product)</h3>
+      <ul>
+        <li>벡터 방향: 오른손 법칙</li>
+        <li>|A×B| = AB sinθ</li>
+        <li>토크, 각운동량 계산에 사용</li>
+      </ul>
+      <div class="formula">τ⃗ = r⃗ × F⃗</div>
+    </div>
+
+    <div class="card purple">
+      <h3>🌀 등가속 각운동 방정식</h3>
+      <div class="formula">
+        ωf = ω₀ + αt<br>
+        θ = ω₀t + ½αt²<br>
+        ωf² = ω₀² + 2αθ
+      </div>
+      <p style="color:var(--text2); font-size:0.83rem; margin-top:0.5rem">선형 운동 방정식과 완전히 대응!</p>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <h3>⚖️ 선형 ↔ 회전 대응표</h3>
+    <table>
+      <tr><th>선형</th><th>회전</th></tr>
+      <tr><td>위치 x</td><td class="mono">각위치 θ</td></tr>
+      <tr><td>속도 v</td><td class="mono">각속도 ω</td></tr>
+      <tr><td>가속도 a</td><td class="mono">각가속도 α</td></tr>
+      <tr><td>질량 m</td><td class="mono">관성모멘트 I</td></tr>
+      <tr><td>힘 F</td><td class="mono">토크 τ</td></tr>
+      <tr><td>운동량 p=mv</td><td class="mono">각운동량 L=Iω</td></tr>
+      <tr><td>F=ma</td><td class="mono">τ=Iα</td></tr>
+      <tr><td>KE=½mv²</td><td class="mono">KE=½Iω²</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ===== OSCILLATION ===== -->
+<div id="oscillation" class="section">
+  <div class="section-title">
+    <span class="icon" style="background:rgba(62,207,142,0.2)">〰️</span>
+    진동과 파동 (Oscillations & Waves)
+  </div>
+
+  <div class="card-grid">
+    <div class="card green">
+      <h3>🌱 단순 조화 운동 (SHM)</h3>
+      <ul>
+        <li>선형 복원력 → F = -kx</li>
+        <li>x(t) = A·cos(ωt + φ)</li>
+        <li>ω = 각진동수 (rad/s)</li>
+        <li>A = 진폭, φ = 초기 위상</li>
+      </ul>
+      <div class="formula">
+        <strong>x(t) = A cos(ωt + φ)</strong><br>
+        <strong>ω = √(k/m)</strong> &nbsp; <span class="comment">// 스프링</span>
+      </div>
+    </div>
+
+    <div class="card green">
+      <h3>⏱️ 주기와 진동수</h3>
+      <ul>
+        <li>T = 주기 (한 번 진동하는 시간, 초)</li>
+        <li>f = 진동수 (Hz = 1/s)</li>
+        <li>ω = 각진동수 (rad/s)</li>
+      </ul>
+      <div class="formula">
+        <strong>T = 2π/ω = 1/f</strong><br>
+        <span class="comment">// 스프링: T = 2π√(m/k)</span><br>
+        <span class="comment">// 단진자: T = 2π√(L/g)</span>
+      </div>
+    </div>
+
+    <div class="card green">
+      <h3>🔭 단진자 (Simple Pendulum)</h3>
+      <ul>
+        <li>복원력: F = -mg sinθ ≈ -mgθ (소각 근사)</li>
+        <li>소각 근사: sinθ ≈ θ (θ << 1 rad)</li>
+        <li>T는 질량과 무관, 길이에만 의존</li>
+      </ul>
+      <div class="formula"><strong>T = 2π√(L/g)</strong></div>
+    </div>
+
+    <div class="card green">
+      <h3>⚡ SHM 에너지</h3>
+      <ul>
+        <li>E_total = ½kA² = 일정</li>
+        <li>K와 U가 계속 변환되며 합은 일정</li>
+        <li>x=0에서 v=최대, U=0</li>
+        <li>x=±A에서 v=0, U=최대</li>
+      </ul>
+      <div class="formula"><strong>E = ½mv² + ½kx² = ½kA²</strong></div>
+    </div>
+  </div>
+
+  <div class="card-full">
+    <h3>🌊 파동 (Waves)</h3>
+    <div class="card-grid" style="margin-top:0.5rem">
+      <div class="card green">
+        <h3>📏 파동의 기본 성질</h3>
+        <ul>
+          <li><strong>파장 λ</strong>: 한 주기의 공간 거리</li>
+          <li><strong>진동수 f</strong>: 초당 진동 횟수</li>
+          <li><strong>진폭 A</strong>: 최대 변위</li>
+          <li><strong>파속 v = fλ</strong></li>
+        </ul>
+        <div class="formula"><strong>v = fλ</strong></div>
+      </div>
+      <div class="card green">
+        <h3>🔊 세기 (Intensity)</h3>
+        <ul>
+          <li>I = P/A (단위면적당 파워)</li>
+          <li>I ∝ A² (진폭 제곱에 비례)</li>
+          <li>구형파: 거리 r 증가 → I ∝ 1/r²</li>
+        </ul>
+      </div>
+      <div class="card green">
+        <h3>🚑 도플러 효과</h3>
+        <ul>
+          <li>관측자/소스가 움직이면 진동수 변화</li>
+          <li>가까워지면 → f 증가</li>
+          <li>멀어지면 → f 감소</li>
+        </ul>
+        <div class="formula">f_obs = f_s · (v±v_obs)/(v∓v_src)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== THERMODYNAMICS ===== -->
+<div id="thermo" class="section">
+  <div class="section-title">
+    <span class="icon" style="background:rgba(232,93,117,0.2)">🌡️</span>
+    열역학 (Thermodynamics)
+  </div>
+
+  <div class="card-grid">
+    <div class="card red">
+      <h3>🌡️ 온도 단위</h3>
+      <ul>
+        <li>섭씨(°C): 물 0°C 얼음, 100°C 끓음</li>
+        <li>화씨(°F): 32°F, 212°F</li>
+        <li><strong>켈빈(K) = °C + 273.15</strong> (절대 0도 기준)</li>
+        <li>열역학은 항상 켈빈 사용!</li>
+      </ul>
+    </div>
+
+    <div class="card red">
+      <h3>🤝 열역학 0법칙</h3>
+      <ul>
+        <li>A↔B 열평형, B↔C 열평형 → A↔C 열평형</li>
+        <li>온도계의 이론적 기반</li>
+      </ul>
+      <div class="highlight red" style="margin-top:0.5rem">열평형 상태에서 두 물체의 온도는 같다</div>
+    </div>
+
+    <div class="card red">
+      <h3>📏 열팽창</h3>
+      <ul>
+        <li>선팽창: ΔL = αL₀ΔT</li>
+        <li>부피팽창: ΔV = βV₀ΔT</li>
+        <li>β ≈ 3α (3D = 1D × 3)</li>
+        <li>α = 재료에 따른 상수</li>
+      </ul>
+      <div class="formula"><strong>ΔL = αL₀ΔT</strong></div>
+    </div>
+
+    <div class="card red">
+      <h3>🔥 열과 열용량</h3>
+      <ul>
+        <li>Q = mcΔT (온도 변화 시)</li>
+        <li>Q = mL (상전이 시, ΔT=0)</li>
+        <li>c = 비열, L = 잠열</li>
+        <li>1 kcal = 4186 J</li>
+      </ul>
+      <div class="formula">
+        <strong>Q = mcΔT</strong><br>
+        <strong>Q = mL</strong> <span class="comment">// 상전이</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card red">
+      <h3>🫧 이상기체 법칙</h3>
+      <ul>
+        <li>고온, 저밀도에서 모든 기체가 따름</li>
+        <li>pV = NkBT (분자 수 N)</li>
+        <li>pV = nRT (몰 수 n)</li>
+        <li>kB = 1.38×10⁻²³ J/K (볼츠만 상수)</li>
+        <li>R = 8.314 J/(mol·K) (기체 상수)</li>
+      </ul>
+      <div class="formula">
+        <strong>pV = NkBT = nRT</strong>
+      </div>
+    </div>
+
+    <div class="card red">
+      <h3>⚗️ 기체 분자 운동론</h3>
+      <ul>
+        <li>평균 KE = (3/2)kBT</li>
+        <li>내부 에너지: E_int = (3/2)NkBT = (3/2)nRT</li>
+        <li>온도 ↑ → 분자 속도 ↑</li>
+      </ul>
+      <div class="formula">
+        <strong>⟨KE⟩ = ³⁄₂ kBT</strong><br>
+        <strong>E_int = ³⁄₂ NkBT</strong>
+      </div>
+    </div>
+
+    <div class="card red">
+      <h3>🔁 열역학 1법칙</h3>
+      <ul>
+        <li>ΔE_int = Q - W</li>
+        <li>Q: 계로 들어온 열 (+), 나간 열 (-)</li>
+        <li>W: 계가 한 일 (+), 받은 일 (-)</li>
+        <li>내부 에너지는 경로 무관 (상태함수)</li>
+      </ul>
+      <div class="formula"><strong>ΔE_int = Q - W</strong></div>
+    </div>
+
+    <div class="card red">
+      <h3>📊 열역학 과정</h3>
+      <ul>
+        <li><strong>등온 (Isothermal):</strong> ΔT = 0 → E_int 일정</li>
+        <li><strong>단열 (Adiabatic):</strong> Q = 0 → pVᵞ = const</li>
+        <li><strong>등압 (Isobaric):</strong> Δp = 0</li>
+        <li><strong>등적 (Isochoric):</strong> ΔV = 0 → W = 0</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card red">
+      <h3>🔥 열역학 2법칙</h3>
+      <ul>
+        <li>열은 자발적으로 뜨거운 곳→ 차가운 곳</li>
+        <li>엔트로피는 자발적으로 증가</li>
+        <li>완벽한 효율의 열기관은 불가능</li>
+      </ul>
+      <div class="highlight red" style="margin-top:0.5rem">어떤 열기관도 카르노 효율보다 클 수 없다</div>
+    </div>
+
+    <div class="card red">
+      <h3>⚙️ 열기관 & 카르노</h3>
+      <ul>
+        <li>효율: η = W_out / Q_H = 1 - Q_C/Q_H</li>
+        <li>카르노 효율: η_Carnot = 1 - T_C/T_H</li>
+        <li>T는 반드시 켈빈!</li>
+        <li>이상적 가역 기관 = 카르노</li>
+      </ul>
+      <div class="formula">
+        <strong>η = 1 - Q_C/Q_H</strong><br>
+        <strong>η_Carnot = 1 - T_C/T_H</strong>
+      </div>
+    </div>
+
+    <div class="card red">
+      <h3>🌬️ 열전달 방식</h3>
+      <ul>
+        <li><strong>전도 (Conduction):</strong> 접촉, P = kA·ΔT/d</li>
+        <li><strong>대류 (Convection):</strong> 유체 흐름</li>
+        <li><strong>복사 (Radiation):</strong> 전자기파</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FORMULA SHEET ===== -->
+<div id="formulas" class="section">
+  <div class="section-title">
+    <span class="icon" style="background:rgba(91,141,238,0.2)">📋</span>
+    핵심 공식 모음
+  </div>
+
+  <div class="card-full">
+    <h3>🎯 운동학 공식</h3>
+    <table>
+      <tr><th>공식</th><th>의미</th><th>없는 것</th></tr>
+      <tr><td class="mono">vf = v₀ + at</td><td>속도-시간</td><td>Δx</td></tr>
+      <tr><td class="mono">Δx = v₀t + ½at²</td><td>변위-시간</td><td>vf</td></tr>
+      <tr><td class="mono">vf² = v₀² + 2aΔx</td><td>속도-변위</td><td>t</td></tr>
+      <tr><td class="mono">Δx = ½(v₀+vf)t</td><td>평균속도</td><td>a</td></tr>
+      <tr><td class="mono">a_y = -g = -9.8 m/s²</td><td>자유낙하</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <div class="card-full">
+    <h3>⚡ 힘 공식</h3>
+    <table>
+      <tr><th>공식</th><th>의미</th></tr>
+      <tr><td class="mono">ΣF = ma</td><td>뉴턴 2법칙</td></tr>
+      <tr><td class="mono">Fg = mg</td><td>중력 (g=9.8 m/s²)</td></tr>
+      <tr><td class="mono">fk = μk·N</td><td>운동마찰력</td></tr>
+      <tr><td class="mono">fs ≤ μs·N</td><td>정지마찰력 (최대값)</td></tr>
+      <tr><td class="mono">F = -kx</td><td>훅의 법칙 (스프링)</td></tr>
+    </table>
+  </div>
+
+  <div class="card-full">
+    <h3>💥 운동량 & 에너지</h3>
+    <table>
+      <tr><th>공식</th><th>의미</th></tr>
+      <tr><td class="mono">p = mv</td><td>운동량</td></tr>
+      <tr><td class="mono">J = Δp = FΔt</td><td>충격량</td></tr>
+      <tr><td class="mono">p_before = p_after</td><td>운동량 보존</td></tr>
+      <tr><td class="mono">K = ½mv²</td><td>운동 에너지</td></tr>
+      <tr><td class="mono">Ug = mgh</td><td>중력 퍼텐셜 에너지</td></tr>
+      <tr><td class="mono">Us = ½kx²</td><td>탄성 퍼텐셜 에너지</td></tr>
+      <tr><td class="mono">W = Fd cosθ</td><td>일</td></tr>
+      <tr><td class="mono">P = W/t = Fv</td><td>일률</td></tr>
+    </table>
+  </div>
+
+  <div class="card-full">
+    <h3>🌀 회전 공식</h3>
+    <table>
+      <tr><th>공식</th><th>의미</th></tr>
+      <tr><td class="mono">τ = rF sinθ</td><td>토크</td></tr>
+      <tr><td class="mono">Στ = Iα</td><td>뉴턴 2법칙 (회전)</td></tr>
+      <tr><td class="mono">I = Σmr²</td><td>관성 모멘트</td></tr>
+      <tr><td class="mono">I = I_cm + Md²</td><td>평행축 정리</td></tr>
+      <tr><td class="mono">L = Iω</td><td>각운동량</td></tr>
+      <tr><td class="mono">K_rot = ½Iω²</td><td>회전 운동 에너지</td></tr>
+      <tr><td class="mono">v = rω, a = rα</td><td>선형-각도 변환</td></tr>
+    </table>
+  </div>
+
+  <div class="card-full">
+    <h3>〰️ 진동 & 파동</h3>
+    <table>
+      <tr><th>공식</th><th>의미</th></tr>
+      <tr><td class="mono">ω = √(k/m)</td><td>스프링 각진동수</td></tr>
+      <tr><td class="mono">T = 2π/ω = 2π√(m/k)</td><td>스프링 주기</td></tr>
+      <tr><td class="mono">T = 2π√(L/g)</td><td>단진자 주기</td></tr>
+      <tr><td class="mono">v = fλ</td><td>파속</td></tr>
+      <tr><td class="mono">I ∝ A²</td><td>파동 세기</td></tr>
+    </table>
+  </div>
+
+  <div class="card-full">
+    <h3>🌡️ 열역학 공식</h3>
+    <table>
+      <tr><th>공식</th><th>의미</th></tr>
+      <tr><td class="mono">T(K) = T(°C) + 273.15</td><td>온도 변환</td></tr>
+      <tr><td class="mono">pV = NkBT = nRT</td><td>이상기체 법칙</td></tr>
+      <tr><td class="mono">⟨KE⟩ = (3/2)kBT</td><td>평균 운동 에너지</td></tr>
+      <tr><td class="mono">E_int = (3/2)nRT</td><td>단원자 이상기체 내부에너지</td></tr>
+      <tr><td class="mono">ΔE_int = Q - W</td><td>열역학 1법칙</td></tr>
+      <tr><td class="mono">Q = mcΔT</td><td>열용량</td></tr>
+      <tr><td class="mono">Q = mL</td><td>잠열 (상전이)</td></tr>
+      <tr><td class="mono">η_Carnot = 1 - T_C/T_H</td><td>카르노 효율</td></tr>
+      <tr><td class="mono">pVᵞ = const</td><td>단열 과정 (γ = Cp/Cv)</td></tr>
+    </table>
+  </div>
+
+  <div class="card-full">
+    <h3>💡 시험 전략 & 자주 나오는 실수</h3>
+    <div class="card-grid" style="margin-top:0.5rem">
+      <div>
+        <div class="highlight red">❌ 최고점에서 가속도 = 0 → 틀림! 여전히 -g</div>
+        <div class="highlight red">❌ 마찰력은 항상 최대값 = μN → 틀림! fs ≤ μsN</div>
+        <div class="highlight red">❌ 3법칙 쌍을 같은 FBD에 그림 → 틀림!</div>
+      </div>
+      <div>
+        <div class="highlight green">✅ 온도는 항상 켈빈(K) 사용</div>
+        <div class="highlight green">✅ 2D 운동은 x, y 독립 분리</div>
+        <div class="highlight green">✅ 계(system) 정의를 먼저 명확히!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- .container -->
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
