@@ -955,103 +955,468 @@
 <div id="formulas" class="section">
   <div class="section-title">
     <span class="icon" style="background:rgba(91,141,238,0.2)">📋</span>
-    핵심 공식 모음
+    핵심 공식 모음 — 기호 완전 해설
   </div>
 
-  <div class="card-full">
-    <h3>🎯 운동학 공식</h3>
-    <table>
-      <tr><th>공식</th><th>의미</th><th>없는 것</th></tr>
-      <tr><td class="mono">vf = v₀ + at</td><td>속도-시간</td><td>Δx</td></tr>
-      <tr><td class="mono">Δx = v₀t + ½at²</td><td>변위-시간</td><td>vf</td></tr>
-      <tr><td class="mono">vf² = v₀² + 2aΔx</td><td>속도-변위</td><td>t</td></tr>
-      <tr><td class="mono">Δx = ½(v₀+vf)t</td><td>평균속도</td><td>a</td></tr>
-      <tr><td class="mono">a_y = -g = -9.8 m/s²</td><td>자유낙하</td><td>—</td></tr>
-    </table>
-  </div>
-
-  <div class="card-full">
-    <h3>⚡ 힘 공식</h3>
-    <table>
-      <tr><th>공식</th><th>의미</th></tr>
-      <tr><td class="mono">ΣF = ma</td><td>뉴턴 2법칙</td></tr>
-      <tr><td class="mono">Fg = mg</td><td>중력 (g=9.8 m/s²)</td></tr>
-      <tr><td class="mono">fk = μk·N</td><td>운동마찰력</td></tr>
-      <tr><td class="mono">fs ≤ μs·N</td><td>정지마찰력 (최대값)</td></tr>
-      <tr><td class="mono">F = -kx</td><td>훅의 법칙 (스프링)</td></tr>
-    </table>
-  </div>
-
-  <div class="card-full">
-    <h3>💥 운동량 & 에너지</h3>
-    <table>
-      <tr><th>공식</th><th>의미</th></tr>
-      <tr><td class="mono">p = mv</td><td>운동량</td></tr>
-      <tr><td class="mono">J = Δp = FΔt</td><td>충격량</td></tr>
-      <tr><td class="mono">p_before = p_after</td><td>운동량 보존</td></tr>
-      <tr><td class="mono">K = ½mv²</td><td>운동 에너지</td></tr>
-      <tr><td class="mono">Ug = mgh</td><td>중력 퍼텐셜 에너지</td></tr>
-      <tr><td class="mono">Us = ½kx²</td><td>탄성 퍼텐셜 에너지</td></tr>
-      <tr><td class="mono">W = Fd cosθ</td><td>일</td></tr>
-      <tr><td class="mono">P = W/t = Fv</td><td>일률</td></tr>
-    </table>
-  </div>
-
-  <div class="card-full">
-    <h3>🌀 회전 공식</h3>
-    <table>
-      <tr><th>공식</th><th>의미</th></tr>
-      <tr><td class="mono">τ = rF sinθ</td><td>토크</td></tr>
-      <tr><td class="mono">Στ = Iα</td><td>뉴턴 2법칙 (회전)</td></tr>
-      <tr><td class="mono">I = Σmr²</td><td>관성 모멘트</td></tr>
-      <tr><td class="mono">I = I_cm + Md²</td><td>평행축 정리</td></tr>
-      <tr><td class="mono">L = Iω</td><td>각운동량</td></tr>
-      <tr><td class="mono">K_rot = ½Iω²</td><td>회전 운동 에너지</td></tr>
-      <tr><td class="mono">v = rω, a = rα</td><td>선형-각도 변환</td></tr>
-    </table>
-  </div>
-
-  <div class="card-full">
-    <h3>〰️ 진동 & 파동</h3>
-    <table>
-      <tr><th>공식</th><th>의미</th></tr>
-      <tr><td class="mono">ω = √(k/m)</td><td>스프링 각진동수</td></tr>
-      <tr><td class="mono">T = 2π/ω = 2π√(m/k)</td><td>스프링 주기</td></tr>
-      <tr><td class="mono">T = 2π√(L/g)</td><td>단진자 주기</td></tr>
-      <tr><td class="mono">v = fλ</td><td>파속</td></tr>
-      <tr><td class="mono">I ∝ A²</td><td>파동 세기</td></tr>
-    </table>
-  </div>
-
-  <div class="card-full">
-    <h3>🌡️ 열역학 공식</h3>
-    <table>
-      <tr><th>공식</th><th>의미</th></tr>
-      <tr><td class="mono">T(K) = T(°C) + 273.15</td><td>온도 변환</td></tr>
-      <tr><td class="mono">pV = NkBT = nRT</td><td>이상기체 법칙</td></tr>
-      <tr><td class="mono">⟨KE⟩ = (3/2)kBT</td><td>평균 운동 에너지</td></tr>
-      <tr><td class="mono">E_int = (3/2)nRT</td><td>단원자 이상기체 내부에너지</td></tr>
-      <tr><td class="mono">ΔE_int = Q - W</td><td>열역학 1법칙</td></tr>
-      <tr><td class="mono">Q = mcΔT</td><td>열용량</td></tr>
-      <tr><td class="mono">Q = mL</td><td>잠열 (상전이)</td></tr>
-      <tr><td class="mono">η_Carnot = 1 - T_C/T_H</td><td>카르노 효율</td></tr>
-      <tr><td class="mono">pVᵞ = const</td><td>단열 과정 (γ = Cp/Cv)</td></tr>
-    </table>
-  </div>
-
-  <div class="card-full">
-    <h3>💡 시험 전략 & 자주 나오는 실수</h3>
-    <div class="card-grid" style="margin-top:0.5rem">
-      <div>
-        <div class="highlight red">❌ 최고점에서 가속도 = 0 → 틀림! 여전히 -g</div>
-        <div class="highlight red">❌ 마찰력은 항상 최대값 = μN → 틀림! fs ≤ μsN</div>
-        <div class="highlight red">❌ 3법칙 쌍을 같은 FBD에 그림 → 틀림!</div>
+  <!-- 기호 범례 -->
+  <div class="card-full" style="border-color: var(--accent4); margin-bottom:1.5rem;">
+    <h3 style="color:var(--accent4)">🔤 자주 쓰이는 기호 한눈에 보기</h3>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:0.5rem; margin-top:0.7rem;">
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">Δ</span> &nbsp;→&nbsp; <span style="color:var(--text2)">변화량 (나중 - 처음)</span>
       </div>
-      <div>
-        <div class="highlight green">✅ 온도는 항상 켈빈(K) 사용</div>
-        <div class="highlight green">✅ 2D 운동은 x, y 독립 분리</div>
-        <div class="highlight green">✅ 계(system) 정의를 먼저 명확히!</div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">Σ</span> &nbsp;→&nbsp; <span style="color:var(--text2)">전부 더함 (합계)</span>
       </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">θ</span> &nbsp;→&nbsp; <span style="color:var(--text2)">각도 (세타)</span>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">μ</span> &nbsp;→&nbsp; <span style="color:var(--text2)">마찰 계수 (뮤)</span>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">ω</span> &nbsp;→&nbsp; <span style="color:var(--text2)">각속도/각진동수 (오메가)</span>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">α</span> &nbsp;→&nbsp; <span style="color:var(--text2)">각가속도 (알파)</span>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">τ</span> &nbsp;→&nbsp; <span style="color:var(--text2)">토크 (타우)</span>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">λ</span> &nbsp;→&nbsp; <span style="color:var(--text2)">파장 (람다)</span>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">η</span> &nbsp;→&nbsp; <span style="color:var(--text2)">효율 (에타)</span>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">γ</span> &nbsp;→&nbsp; <span style="color:var(--text2)">비열비 (감마)</span>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">π</span> &nbsp;→&nbsp; <span style="color:var(--text2)">파이 ≈ 3.14159</span>
+      </div>
+      <div style="background:var(--surface2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.84rem;">
+        <span style="font-family:monospace;color:#a8d4ff;font-size:1rem;">∝</span> &nbsp;→&nbsp; <span style="color:var(--text2)">비례한다</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 운동학 -->
+  <div class="card-full">
+    <h3>📐 운동학 공식 (Kinematics)</h3>
+    <p style="color:var(--text3);font-size:0.82rem;margin-bottom:0.8rem;">※ 등가속도 운동에서만 사용 가능</p>
+    <table>
+      <tr><th style="width:30%">공식</th><th style="width:25%">없는 변수</th><th>기호 설명</th></tr>
+      <tr>
+        <td class="mono">vf = v₀ + at</td>
+        <td style="color:var(--accent3)">Δx 없음</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">vf</b> = 나중 속도 (m/s)<br>
+          <b style="color:var(--text)">v₀</b> = 처음 속도 (m/s)<br>
+          <b style="color:var(--text)">a</b> = 가속도 (m/s²)<br>
+          <b style="color:var(--text)">t</b> = 시간 (s)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">Δx = v₀t + ½at²</td>
+        <td style="color:var(--accent3)">vf 없음</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">Δx</b> = 변위 (나중위치 - 처음위치, m)<br>
+          위와 동일 기호 사용
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">vf² = v₀² + 2aΔx</td>
+        <td style="color:var(--accent3)">t 없음</td>
+        <td style="color:var(--text2);font-size:0.84rem">시간 t 없이 속도·거리 관계만으로 풀 때</td>
+      </tr>
+      <tr>
+        <td class="mono">Δx = ½(v₀+vf)t</td>
+        <td style="color:var(--accent3)">a 없음</td>
+        <td style="color:var(--text2);font-size:0.84rem">평균속도 × 시간 = 변위</td>
+      </tr>
+      <tr>
+        <td class="mono">ay = -g = -9.8 m/s²</td>
+        <td style="color:var(--accent3)">자유낙하</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">g</b> = 중력가속도 = 9.8 m/s² (항상 양수)<br>
+          y방향 가속도는 위가 +이면 <b>-9.8</b>
+        </td>
+      </tr>
+    </table>
+    <div class="highlight" style="margin-top:0.8rem;font-size:0.84rem">
+      💡 <b>꿀팁:</b> 모르는 것이 무엇인지 먼저 파악 → 그 변수가 없는 공식 선택!
+    </div>
+  </div>
+
+  <!-- 힘 -->
+  <div class="card-full">
+    <h3>⚡ 힘 공식 (Forces)</h3>
+    <table>
+      <tr><th style="width:30%">공식</th><th style="width:25%">이름</th><th>기호 설명</th></tr>
+      <tr>
+        <td class="mono">ΣF = ma</td>
+        <td style="color:var(--accent2)">뉴턴 2법칙</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">Σ</b> = 전부 합산 (알짜힘)<br>
+          <b style="color:var(--text)">F</b> = 힘 (N, 뉴턴)<br>
+          <b style="color:var(--text)">m</b> = 질량 (kg)<br>
+          <b style="color:var(--text)">a</b> = 가속도 (m/s²)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">Fg = mg</td>
+        <td style="color:var(--accent2)">중력</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">Fg</b> = 중력의 크기 (N)<br>
+          <b style="color:var(--text)">m</b> = 물체의 질량 (kg)<br>
+          <b style="color:var(--text)">g</b> = 9.8 m/s² (지구 중력가속도)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">fk = μk · N</td>
+        <td style="color:var(--accent2)">운동마찰력</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">fk</b> = 운동마찰력 크기 (N)<br>
+          <b style="color:var(--text)">μk</b> = 운동마찰계수 (단위 없음, 0~1 사이 숫자)<br>
+          <b style="color:var(--text)">N</b> = 수직항력 (표면이 물체를 미는 힘, N)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">fs ≤ μs · N</td>
+        <td style="color:var(--accent2)">정지마찰력</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">fs</b> = 정지마찰력 크기 (N) — 최대값까지만 커짐<br>
+          <b style="color:var(--text)">μs</b> = 정지마찰계수 (μs &gt; μk)<br>
+          ≤ 기호 = "같거나 작다" → 최대값이 μsN
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">F = −kx</td>
+        <td style="color:var(--accent2)">훅의 법칙</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">k</b> = 스프링 상수 (N/m, 클수록 딱딱한 스프링)<br>
+          <b style="color:var(--text)">x</b> = 평형점에서의 변위 (m)<br>
+          <b style="color:var(--text)">−</b> = 변위 반대 방향으로 힘이 작용 (복원력)
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 운동량 -->
+  <div class="card-full">
+    <h3>💥 운동량 & 충격량 (Momentum & Impulse)</h3>
+    <table>
+      <tr><th style="width:30%">공식</th><th style="width:25%">이름</th><th>기호 설명</th></tr>
+      <tr>
+        <td class="mono">p = mv</td>
+        <td style="color:var(--accent4)">운동량</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">p</b> = 운동량 (kg·m/s) — 벡터!<br>
+          <b style="color:var(--text)">m</b> = 질량 (kg)<br>
+          <b style="color:var(--text)">v</b> = 속도 (m/s)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">J = Δp = FΔt</td>
+        <td style="color:var(--accent4)">충격량</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">J</b> = 충격량 (N·s = kg·m/s)<br>
+          <b style="color:var(--text)">Δp</b> = 운동량 변화 (나중 p − 처음 p)<br>
+          <b style="color:var(--text)">F</b> = 가해진 힘, <b style="color:var(--text)">Δt</b> = 힘이 작용한 시간
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">p_전 = p_후</td>
+        <td style="color:var(--accent4)">운동량 보존</td>
+        <td style="color:var(--text2);font-size:0.84rem">외력 없으면 충돌 전후 총 운동량 동일<br>
+          m₁v₁ᵢ + m₂v₂ᵢ = m₁v₁f + m₂v₂f
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 에너지 -->
+  <div class="card-full">
+    <h3>🔋 에너지 & 일 (Energy & Work)</h3>
+    <table>
+      <tr><th style="width:30%">공식</th><th style="width:25%">이름</th><th>기호 설명</th></tr>
+      <tr>
+        <td class="mono">K = ½mv²</td>
+        <td style="color:var(--accent3)">운동 에너지</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">K</b> = 운동 에너지 (J, 줄)<br>
+          <b style="color:var(--text)">m</b> = 질량 (kg)<br>
+          <b style="color:var(--text)">v</b> = 속력 (m/s) — 스칼라여도 됨
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">Ug = mgh</td>
+        <td style="color:var(--accent3)">중력 퍼텐셜 에너지</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">Ug</b> = 중력 퍼텐셜 에너지 (J)<br>
+          <b style="color:var(--text)">m</b> = 질량 (kg)<br>
+          <b style="color:var(--text)">g</b> = 9.8 m/s²<br>
+          <b style="color:var(--text)">h</b> = 기준점으로부터 높이 (m) — 기준점 직접 선택 가능
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">Us = ½kx²</td>
+        <td style="color:var(--accent3)">탄성 퍼텐셜 에너지</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">Us</b> = 스프링에 저장된 에너지 (J)<br>
+          <b style="color:var(--text)">k</b> = 스프링 상수 (N/m)<br>
+          <b style="color:var(--text)">x</b> = 평형점에서 늘어나거나 압축된 길이 (m)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">W = Fd cosθ</td>
+        <td style="color:var(--accent3)">일 (Work)</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">W</b> = 일 (J)<br>
+          <b style="color:var(--text)">F</b> = 힘의 크기 (N)<br>
+          <b style="color:var(--text)">d</b> = 이동 거리 (m)<br>
+          <b style="color:var(--text)">θ</b> = 힘과 이동 방향 사이의 각도<br>
+          <span style="color:var(--accent2)">cosθ = 1 (같은방향), 0 (수직), -1 (반대방향)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">Ki + Ui = Kf + Uf</td>
+        <td style="color:var(--accent3)">에너지 보존</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">i</b> = initial (처음), <b style="color:var(--text)">f</b> = final (나중)<br>
+          마찰 없을 때만 성립!
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">P = W/t = Fv</td>
+        <td style="color:var(--accent3)">일률 (Power)</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">P</b> = 일률 (W, 와트 = J/s)<br>
+          <b style="color:var(--text)">W</b> = 한 일 (J)<br>
+          <b style="color:var(--text)">t</b> = 걸린 시간 (s)<br>
+          <b style="color:var(--text)">v</b> = 속력 (m/s)
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 회전 -->
+  <div class="card-full">
+    <h3>🌀 회전 공식 (Rotation)</h3>
+    <table>
+      <tr><th style="width:30%">공식</th><th style="width:25%">이름</th><th>기호 설명</th></tr>
+      <tr>
+        <td class="mono">τ = rF sinθ</td>
+        <td style="color:var(--accent5)">토크</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">τ</b> (타우) = 토크, 회전 효과 (N·m)<br>
+          <b style="color:var(--text)">r</b> = 회전축에서 힘이 작용하는 점까지 거리 (m)<br>
+          <b style="color:var(--text)">F</b> = 힘의 크기 (N)<br>
+          <b style="color:var(--text)">θ</b> = r 방향과 F 방향 사이 각도
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">Στ = Iα</td>
+        <td style="color:var(--accent5)">회전 2법칙</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          선형의 F=ma와 동일 구조<br>
+          <b style="color:var(--text)">Στ</b> = 알짜 토크 (N·m)<br>
+          <b style="color:var(--text)">I</b> = 관성 모멘트 (kg·m²)<br>
+          <b style="color:var(--text)">α</b> (알파) = 각가속도 (rad/s²)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">I = Σmr²</td>
+        <td style="color:var(--accent5)">관성 모멘트</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">I</b> = 관성 모멘트 (kg·m²) — 회전 버전의 질량<br>
+          <b style="color:var(--text)">m</b> = 각 점 질량 (kg)<br>
+          <b style="color:var(--text)">r</b> = 각 점에서 회전축까지 거리 (m)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">I = I_cm + Md²</td>
+        <td style="color:var(--accent5)">평행축 정리</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">I_cm</b> = 질량중심 기준 관성 모멘트<br>
+          <b style="color:var(--text)">M</b> = 전체 질량 (kg)<br>
+          <b style="color:var(--text)">d</b> = 질량중심에서 새 축까지 거리 (m)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">L = Iω</td>
+        <td style="color:var(--accent5)">각운동량</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">L</b> = 각운동량 (kg·m²/s) — 운동량 p=mv의 회전 버전<br>
+          <b style="color:var(--text)">ω</b> (오메가) = 각속도 (rad/s)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">K_rot = ½Iω²</td>
+        <td style="color:var(--accent5)">회전 운동 에너지</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          ½mv²의 회전 버전<br>
+          구를 때: K_total = ½mv² + ½Iω²
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">v = rω &nbsp; a = rα</td>
+        <td style="color:var(--accent5)">선형 ↔ 각도</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">r</b> = 회전 반지름 (m)<br>
+          선속도 v와 각속도 ω를 연결해주는 공식
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 진동 파동 -->
+  <div class="card-full">
+    <h3>〰️ 진동 & 파동 (Oscillations & Waves)</h3>
+    <table>
+      <tr><th style="width:30%">공식</th><th style="width:25%">이름</th><th>기호 설명</th></tr>
+      <tr>
+        <td class="mono">ω = √(k/m)</td>
+        <td style="color:var(--accent3)">각진동수 (스프링)</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">ω</b> (오메가) = 각진동수 (rad/s) — 초당 몇 라디안 진동하는지<br>
+          <b style="color:var(--text)">k</b> = 스프링 상수 (N/m)<br>
+          <b style="color:var(--text)">m</b> = 질량 (kg)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">T = 2π√(m/k)</td>
+        <td style="color:var(--accent3)">주기 (스프링)</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">T</b> = 주기 (s) — 한 번 왔다갔다하는 데 걸리는 시간<br>
+          <b style="color:var(--text)">2π</b> ≈ 6.28<br>
+          질량 클수록 T 커짐, k 클수록 T 작아짐
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">T = 2π√(L/g)</td>
+        <td style="color:var(--accent3)">주기 (단진자)</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">L</b> = 줄의 길이 (m)<br>
+          <b style="color:var(--text)">g</b> = 9.8 m/s²<br>
+          질량은 아무 관계 없음! 길이만 중요
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">f = 1/T</td>
+        <td style="color:var(--accent3)">진동수</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">f</b> = 진동수 (Hz) — 초당 진동 횟수<br>
+          <b style="color:var(--text)">T</b> = 주기 (s)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">v = fλ</td>
+        <td style="color:var(--accent3)">파속</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">v</b> = 파동의 속력 (m/s)<br>
+          <b style="color:var(--text)">f</b> = 진동수 (Hz)<br>
+          <b style="color:var(--text)">λ</b> (람다) = 파장, 파동 한 주기의 길이 (m)
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 열역학 -->
+  <div class="card-full">
+    <h3>🌡️ 열역학 공식 (Thermodynamics)</h3>
+    <table>
+      <tr><th style="width:30%">공식</th><th style="width:25%">이름</th><th>기호 설명</th></tr>
+      <tr>
+        <td class="mono">T(K) = T(°C) + 273.15</td>
+        <td style="color:var(--accent2)">온도 변환</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">T</b> = 온도 — 열역학에선 항상 켈빈(K) 사용!<br>
+          0°C = 273.15K, 25°C = 298.15K
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">pV = NkBT = nRT</td>
+        <td style="color:var(--accent2)">이상기체 법칙</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">p</b> = 압력 (Pa = N/m²)<br>
+          <b style="color:var(--text)">V</b> = 부피 (m³)<br>
+          <b style="color:var(--text)">N</b> = 분자 개수 (개)<br>
+          <b style="color:var(--text)">kB</b> = 볼츠만 상수 = 1.38×10⁻²³ J/K<br>
+          <b style="color:var(--text)">n</b> = 몰 수 (mol)<br>
+          <b style="color:var(--text)">R</b> = 기체 상수 = 8.314 J/(mol·K)<br>
+          <b style="color:var(--text)">T</b> = 절대온도 (K)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">Q = mcΔT</td>
+        <td style="color:var(--accent2)">열용량</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">Q</b> = 열 (J) — 양수면 흡수, 음수면 방출<br>
+          <b style="color:var(--text)">m</b> = 질량 (g 또는 kg, c 단위에 맞춰서)<br>
+          <b style="color:var(--text)">c</b> = 비열 (J/g°C 또는 J/kg·K)<br>
+          <b style="color:var(--text)">ΔT</b> = 온도 변화 (°C 또는 K, 차이면 같음)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">Q = mL</td>
+        <td style="color:var(--accent2)">잠열 (상전이)</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          온도 변화 없이 상태가 바뀔 때 (얼음→물, 물→수증기)<br>
+          <b style="color:var(--text)">L</b> = 잠열 계수 (J/g) — 재료별 상수
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">ΔE_int = Q − W</td>
+        <td style="color:var(--accent2)">열역학 1법칙</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">ΔE_int</b> = 내부 에너지 변화 (J)<br>
+          <b style="color:var(--text)">Q</b> = 계가 흡수한 열 (+) / 방출한 열 (−)<br>
+          <b style="color:var(--text)">W</b> = 계가 한 일 (+) / 받은 일 (−)<br>
+          <span style="color:var(--accent2)">주의: W 부호 약속이 책마다 다를 수 있음!</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">η = W/QH</td>
+        <td style="color:var(--accent2)">열기관 효율</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">η</b> (에타) = 효율 (0~1, 또는 %)<br>
+          <b style="color:var(--text)">W</b> = 기관이 한 일 (J)<br>
+          <b style="color:var(--text)">QH</b> = 고온에서 흡수한 열 (J)
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">η_Carnot = 1 − TC/TH</td>
+        <td style="color:var(--accent2)">카르노 효율</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          <b style="color:var(--text)">TC</b> = 저온 온도 (반드시 켈빈 K)<br>
+          <b style="color:var(--text)">TH</b> = 고온 온도 (반드시 켈빈 K)<br>
+          이론적 최대 효율 — 실제는 항상 이보다 작음
+        </td>
+      </tr>
+      <tr>
+        <td class="mono">E_int = (3/2)nRT</td>
+        <td style="color:var(--accent2)">내부 에너지</td>
+        <td style="color:var(--text2);font-size:0.84rem">
+          단원자 이상기체 전용<br>
+          <b style="color:var(--text)">n</b> = 몰 수, <b style="color:var(--text)">R</b> = 8.314 J/mol·K<br>
+          <b style="color:var(--text)">T</b> = 절대온도 (K)
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 실수 주의 -->
+  <div class="card-full" style="border-color:var(--accent2)">
+    <h3 style="color:var(--accent2)">⚠️ 자주 나오는 실수 & 주의사항</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;margin-top:0.7rem;">
+      <div class="highlight red">❌ 최고점에서 가속도 = 0?<br><span style="font-size:0.82rem">→ NO! 속도=0이지 가속도는 여전히 −9.8 m/s²</span></div>
+      <div class="highlight red">❌ 마찰력 = μN 항상?<br><span style="font-size:0.82rem">→ 정지마찰은 fs ≤ μsN (최대값, 상황에 따라 다름)</span></div>
+      <div class="highlight red">❌ 온도를 °C로 기체 공식에 대입?<br><span style="font-size:0.82rem">→ pV=nRT, 카르노 등 열역학은 반드시 켈빈 K!</span></div>
+      <div class="highlight red">❌ 3법칙 쌍을 같은 FBD에?<br><span style="font-size:0.82rem">→ 작용-반작용은 반드시 다른 물체에 표시</span></div>
+      <div class="highlight green">✅ 운동량 보존 체크리스트<br><span style="font-size:0.82rem">계(system)에 외력이 없어야 보존됨!</span></div>
+      <div class="highlight green">✅ 2D 문제는 x, y 독립 분리<br><span style="font-size:0.82rem">두 방향의 시간 t는 항상 공유!</span></div>
     </div>
   </div>
 </div>
